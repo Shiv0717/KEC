@@ -118,7 +118,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 text-white">
+    <footer className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 text-white px-4">
       {/* Stats Banner */}
       
 
