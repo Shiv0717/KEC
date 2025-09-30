@@ -54,7 +54,7 @@ const ElectricVehicleRegistration = () => {
           <div className="">
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
               <img 
-                src="public/courses/Ev.jpg"
+                src="/courses/Ev.jpg"
                 alt="Electric Vehicle Design"
                 className="w-full h-full object-cover"
               />
