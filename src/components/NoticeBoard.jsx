@@ -257,7 +257,7 @@ export default function AcademicDatesSection() {
             style={headingFont}
           >
             <span className="bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-              {splitLetters("Announcements & News")}
+            Announcements & News
             </span>
           </h2>
 
