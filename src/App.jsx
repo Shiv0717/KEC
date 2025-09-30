@@ -37,6 +37,7 @@ import Super40ExamQuestions from "./pages/Super40ExamQuestions";
 import Drone from "./pages/Drone";
 import EV from "./pages/EV";
 import AdvancedCodingRegistration from "./pages/Coding";
+import ChargingTechnologyRegistration from "./pages/FastCharging";
 
 const router = createBrowserRouter([
   {
@@ -69,6 +70,7 @@ const router = createBrowserRouter([
       { path: "exam", element:<Super40ExamQuestions/>},
       { path: "drone", element:<Drone/>},
       { path: "ev", element:<EV/>},
+      { path: "charging", element:<ChargingTechnologyRegistration/>},
       { path: "coding", element:<AdvancedCodingRegistration/>},
       { path: "*", element: <NotFound/> },
     ],

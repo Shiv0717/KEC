@@ -1,279 +1,170 @@
 "use client";
 import React, { useState } from 'react';
-import { Battery, Car, Zap, Settings, User, Mail, Phone, BookOpen, Award } from 'lucide-react';
+import { Car, Battery, CheckCircle } from 'lucide-react';
 
-const EVTechnologyRegistration = () => {
+const ElectricVehicleRegistration = () => {
   const [formData, setFormData] = useState({
-    // Personal Information
     fullName: '',
-    studentId: '',
     email: '',
     phone: '',
+    courseLevel: 'beginner',
     department: '',
-    year: '',
-    
-    // Course Selection
-    specialization: 'design',
-    batteryFocus: true,
-    chargingTech: true,
-    
-    // Background
-    mechanicalBackground: false,
-    electricalBackground: false,
-    programmingSkills: '',
-    
-    // Project Interest
-    projectType: 'individual',
-    teamSize: '1',
-    preferredVehicle: 'passenger'
+    semester: ''
   });
 
-  const specializations = [
-    { value: 'design', label: 'EV Design & Manufacturing', credits: '4' },
-    { value: 'battery', label: 'Battery Technology', credits: '3' },
-    { value: 'charging', label: 'Charging Infrastructure', credits: '3' },
-    { value: 'software', label: 'EV Software Systems', credits: '4' }
+  const courseLevels = [
+    { value: 'beginner', label: 'Beginner - EV Fundamentals' },
+    { value: 'intermediate', label: 'Intermediate - Battery Systems' },
+    { value: 'advanced', label: 'Advanced - Powertrain Design' },
+    { value: 'professional', label: 'Professional - EV Architecture' }
   ];
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('EV Technology Registration:', formData);
-    alert('EV Technology course registration submitted successfully!');
+    console.log('Electric Vehicle Registration:', formData);
+    alert('Registration submitted successfully! We will contact you soon.');
   };
 
   const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
+    const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
-      [name]: type === 'checkbox' ? checked : value
+      [name]: value
     }));
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-100 py-8 px-4">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-8">
+
+        {/* Centered Header */}
+        <div className="text-center mb-12">
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="p-3 bg-green-500 rounded-full">
               <Car className="w-8 h-8 text-white" />
             </div>
-            <h1 className="text-4xl font-bold text-gray-900">EV Technology Course Registration</h1>
+            <h1 className="text-3xl lg:text-4xl font-bold text-gray-900">Electric Vehicle Design & Development</h1>
           </div>
-          <p className="text-lg text-gray-600">Learn electric vehicle design, battery systems, and sustainable transportation</p>
+          <p className="text-lg text-gray-600">Master EV technology, battery systems, and sustainable transportation design</p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Left Side - Course Info */}
-          <div className="space-y-6">
-            <div className="bg-white rounded-2xl shadow-lg p-6">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Program Highlights</h2>
-              
-              <div className="space-y-4">
-                <div className="flex items-center gap-3 p-3 bg-green-50 rounded-lg">
-                  <Battery className="w-5 h-5 text-green-600" />
-                  <div>
-                    <h3 className="font-semibold">Battery Technology</h3>
-                    <p className="text-sm text-gray-600">Lithium-ion systems, Battery management, Thermal control</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-center gap-3 p-3 bg-blue-50 rounded-lg">
-                  <Zap className="w-5 h-5 text-blue-600" />
-                  <div>
-                    <h3 className="font-semibold">Powertrain Systems</h3>
-                    <p className="text-sm text-gray-600">Electric motors, Power electronics, Drivetrain design</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-center gap-3 p-3 bg-purple-50 rounded-lg">
-                  <Settings className="w-5 h-5 text-purple-600" />
-                  <div>
-                    <h3 className="font-semibold">Smart Charging</h3>
-                    <p className="text-sm text-gray-600">Fast charging, Wireless charging, Grid integration</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-2xl shadow-lg p-6">
-              <h3 className="text-lg font-bold text-gray-900 mb-4">Specialization Tracks</h3>
-              <div className="space-y-3">
-                {specializations.map(spec => (
-                  <div key={spec.value} className="p-3 border rounded-lg hover:border-green-500 transition-colors">
-                    <div className="flex justify-between items-center">
-                      <span className="font-medium">{spec.label}</span>
-                      <span className="text-sm bg-green-100 text-green-800 px-2 py-1 rounded">{spec.credits} Credits</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          
+          {/* Left Side - Image */}
+          <div className="">
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+              <img 
+                src="public/courses/Ev.jpg"
+                alt="Electric Vehicle Design"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
 
-          {/* Right Side - Registration Form */}
-          <div className="bg-white rounded-2xl shadow-lg p-6">
+          {/* Right Side - Simple Registration Form */}
+          <div className="bg-white rounded-2xl shadow-lg p-8">
+            <div className="text-center mb-8">
+              <h2 className="text-2xl font-bold text-gray-900 mb-2">Register Now</h2>
+              <p className="text-gray-600">Join our electric vehicle course today</p>
+            </div>
+
             <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Personal Information */}
+              {/* Full Name */}
               <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                  <User className="w-5 h-5" />
-                  Student Information
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-                    <input
-                      type="text"
-                      name="fullName"
-                      value={formData.fullName}
-                      onChange={handleChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Student ID</label>
-                    <input
-                      type="text"
-                      name="studentId"
-                      value={formData.studentId}
-                      onChange={handleChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Department</label>
-                    <select
-                      name="department"
-                      value={formData.department}
-                      onChange={handleChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
-                    >
-                      <option value="">Select Department</option>
-                      <option value="mechanical">Mechanical Engineering</option>
-                      <option value="electrical">Electrical Engineering</option>
-                      <option value="computer">Computer Science</option>
-                      <option value="automotive">Automotive Engineering</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Academic Year</label>
-                    <select
-                      name="year"
-                      value={formData.year}
-                      onChange={handleChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
-                    >
-                      <option value="">Select Year</option>
-                      <option value="1">First Year</option>
-                      <option value="2">Second Year</option>
-                      <option value="3">Third Year</option>
-                      <option value="4">Fourth Year</option>
-                    </select>
-                  </div>
-                </div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Full Name *
+                </label>
+                <input
+                  type="text"
+                  name="fullName"
+                  value={formData.fullName}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
+                  placeholder="Enter your full name"
+                  required
+                />
               </div>
 
-              {/* Course Specialization */}
+              {/* Email */}
               <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                  <BookOpen className="w-5 h-5" />
-                  Course Specialization
-                </h3>
-                <div className="space-y-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Choose Specialization</label>
-                    <select
-                      name="specialization"
-                      value={formData.specialization}
-                      onChange={handleChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
-                    >
-                      {specializations.map(spec => (
-                        <option key={spec.value} value={spec.value}>{spec.label}</option>
-                      ))}
-                    </select>
-                  </div>
-                  
-                  <div className="grid grid-cols-2 gap-4">
-                    <label className="flex items-center gap-2">
-                      <input
-                        type="checkbox"
-                        name="batteryFocus"
-                        checked={formData.batteryFocus}
-                        onChange={handleChange}
-                        className="w-4 h-4"
-                      />
-                      <span className="text-sm font-medium">Battery Technology</span>
-                    </label>
-                    
-                    <label className="flex items-center gap-2">
-                      <input
-                        type="checkbox"
-                        name="chargingTech"
-                        checked={formData.chargingTech}
-                        onChange={handleChange}
-                        className="w-4 h-4"
-                      />
-                      <span className="text-sm font-medium">Charging Systems</span>
-                    </label>
-                  </div>
-                </div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Email Address *
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
+                  placeholder="Enter your email"
+                  required
+                />
               </div>
 
-              {/* Technical Background */}
+              {/* Phone */}
               <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Technical Background</h3>
-                <div className="space-y-3">
-                  <label className="flex items-center gap-2">
-                    <input
-                      type="checkbox"
-                      name="mechanicalBackground"
-                      checked={formData.mechanicalBackground}
-                      onChange={handleChange}
-                      className="w-4 h-4"
-                    />
-                    <span className="text-sm font-medium">Mechanical Engineering background</span>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Phone Number *
+                </label>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
+                  placeholder="Enter your phone number"
+                  required
+                />
+              </div>
+
+            
+              {/* Department and Semester */}
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Department
                   </label>
-                  
-                  <label className="flex items-center gap-2">
-                    <input
-                      type="checkbox"
-                      name="electricalBackground"
-                      checked={formData.electricalBackground}
-                      onChange={handleChange}
-                      className="w-4 h-4"
-                    />
-                    <span className="text-sm font-medium">Electrical Engineering background</span>
+                  <select
+                    name="department"
+                    value={formData.department}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
+                  >
+                    <option value="">Select Department</option>
+                    <option value="mechanical">Mechanical Engineering</option>
+                    <option value="electrical">Electrical Engineering</option>
+                    <option value="computer">Computer Science</option>
+                    <option value="civil">Civil Engineering</option>
+                  </select>
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Semester
                   </label>
-                  
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Programming Skills</label>
-                    <select
-                      name="programmingSkills"
-                      value={formData.programmingSkills}
-                      onChange={handleChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
-                    >
-                      <option value="">Select level</option>
-                      <option value="beginner">Beginner</option>
-                      <option value="intermediate">Intermediate</option>
-                      <option value="advanced">Advanced</option>
-                    </select>
-                  </div>
+                  <select
+                    name="semester"
+                    value={formData.semester}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
+                  >
+                    <option value="">Select Semester</option>
+                    {[1, 2, 3, 4, 5, 6, 7, 8].map(sem => (
+                      <option key={sem} value={sem}>Semester {sem}</option>
+                    ))}
+                  </select>
                 </div>
               </div>
 
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full bg-green-600 text-white py-3 px-4 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-200 flex items-center justify-center gap-2"
+                className="w-full bg-green-600 text-white py-4 px-6 rounded-xl font-semibold hover:bg-green-700 transition-all duration-300 flex items-center justify-center gap-3 shadow-lg hover:shadow-xl"
               >
-                <Award className="w-5 h-5" />
-                Register for EV Technology Course
+                <CheckCircle className="w-5 h-5" />
+                Register for Course
               </button>
+              
             </form>
           </div>
         </div>
@@ -282,4 +173,4 @@ const EVTechnologyRegistration = () => {
   );
 };
 
-export default EVTechnologyRegistration;
+export default ElectricVehicleRegistration;

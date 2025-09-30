@@ -1,317 +1,170 @@
 "use client";
 import React, { useState } from 'react';
-import { Code, Cpu, Database, Cloud, User, Mail, Phone, BookOpen, Award, GitBranch } from 'lucide-react';
+import { Code, CheckCircle } from 'lucide-react';
 
 const AdvancedCodingRegistration = () => {
   const [formData, setFormData] = useState({
-    // Personal Information
     fullName: '',
-    studentId: '',
     email: '',
     phone: '',
-    major: '',
-    gpa: '',
-    
-    // Technical Skills
-    programmingLanguages: [],
-    experienceLevel: 'intermediate',
-    githubProfile: '',
-    
-    // Course Preferences
-    focusArea: 'ai',
-    projectComplexity: 'medium',
-    teamPreference: 'mixed',
-    
-    // Availability
-    hoursPerWeek: '10-15',
-    preferredSchedule: 'flexible'
+    courseLevel: 'intermediate',
+    department: '',
+    semester: ''
   });
 
-  const focusAreas = [
-    { value: 'ai', label: 'AI & Machine Learning', difficulty: 'Advanced' },
-    { value: 'web', label: 'Full-Stack Web Development', difficulty: 'Intermediate' },
-    { value: 'mobile', label: 'Mobile App Development', difficulty: 'Intermediate' },
-    { value: 'cloud', label: 'Cloud & DevOps', difficulty: 'Advanced' },
-    { value: 'blockchain', label: 'Blockchain Development', difficulty: 'Expert' }
-  ];
-
-  const programmingLanguages = [
-    'Python', 'JavaScript', 'Java', 'C++', 'Ruby', 'Go', 'Rust', 'TypeScript', 'Swift', 'Kotlin'
+  const courseLevels = [
+    { value: 'beginner', label: 'Beginner - Programming Fundamentals' },
+    { value: 'intermediate', label: 'Intermediate - Full Stack Development' },
+    { value: 'advanced', label: 'Advanced - System Design & Architecture' },
+    { value: 'expert', label: 'Expert - AI & Machine Learning' }
   ];
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Advanced Coding Registration:', formData);
-    alert('Advanced Coding course registration submitted successfully!');
+    alert('Registration submitted successfully! We will contact you soon.');
   };
 
   const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    
-    if (type === 'checkbox') {
-      // Handle programming languages array
-      if (name === 'programmingLanguages') {
-        setFormData(prev => ({
-          ...prev,
-          programmingLanguages: checked 
-            ? [...prev.programmingLanguages, value]
-            : prev.programmingLanguages.filter(lang => lang !== value)
-        }));
-      }
-    } else {
-      setFormData(prev => ({
-        ...prev,
-        [name]: value
-      }));
-    }
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-100 py-8 px-4">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-8">
+
+        {/* Centered Header */}
+        <div className="text-center mb-12">
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="p-3 bg-purple-500 rounded-full">
               <Code className="w-8 h-8 text-white" />
             </div>
-            <h1 className="text-4xl font-bold text-gray-900">Advanced Coding Course Registration</h1>
+            <h1 className="text-3xl lg:text-4xl font-bold text-gray-900">Advanced Coding Course</h1>
           </div>
-          <p className="text-lg text-gray-600">Master cutting-edge programming, AI development, and software architecture</p>
+          <p className="text-lg text-gray-600">Master full-stack development, system design, and advanced programming</p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Left Side - Course Info */}
-          <div className="space-y-6">
-            <div className="bg-white rounded-2xl shadow-lg p-6">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Specialization Tracks</h2>
-              
-              <div className="space-y-4">
-                <div className="flex items-center gap-3 p-3 bg-purple-50 rounded-lg">
-                  <Cpu className="w-5 h-5 text-purple-600" />
-                  <div>
-                    <h3 className="font-semibold">AI & Machine Learning</h3>
-                    <p className="text-sm text-gray-600">Neural networks, Deep learning, NLP, Computer vision</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-center gap-3 p-3 bg-blue-50 rounded-lg">
-                  <Cloud className="w-5 h-5 text-blue-600" />
-                  <div>
-                    <h3 className="font-semibold">Cloud Computing</h3>
-                    <p className="text-sm text-gray-600">AWS, Azure, Kubernetes, Microservices architecture</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-center gap-3 p-3 bg-green-50 rounded-lg">
-                  <Database className="w-5 h-5 text-green-600" />
-                  <div>
-                    <h3 className="font-semibold">Big Data</h3>
-                    <p className="text-sm text-gray-600">Data engineering, Analytics, Distributed systems</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-2xl shadow-lg p-6">
-              <h3 className="text-lg font-bold text-gray-900 mb-4">Focus Areas</h3>
-              <div className="space-y-3">
-                {focusAreas.map(area => (
-                  <div key={area.value} className="p-3 border rounded-lg hover:border-purple-500 transition-colors">
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="font-medium">{area.label}</span>
-                      <span className={`text-xs px-2 py-1 rounded ${
-                        area.difficulty === 'Expert' ? 'bg-red-100 text-red-800' :
-                        area.difficulty === 'Advanced' ? 'bg-orange-100 text-orange-800' :
-                        'bg-blue-100 text-blue-800'
-                      }`}>
-                        {area.difficulty}
-                      </span>
-                    </div>
-                    <div className="flex gap-2 flex-wrap">
-                      <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">Projects</span>
-                      <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">Mentorship</span>
-                      <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">Certification</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          
+          {/* Left Side - Image */}
+          <div className="">
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+              <img 
+                src="/courses/coding.jpg"
+                alt="Advanced Coding"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
 
-          {/* Right Side - Registration Form */}
-          <div className="bg-white rounded-2xl shadow-lg p-6">
+          {/* Right Side - Simple Registration Form */}
+          <div className="bg-white rounded-2xl shadow-lg p-8">
+            <div className="text-center mb-8">
+              <h2 className="text-2xl font-bold text-gray-900 mb-2">Register Now</h2>
+              <p className="text-gray-600">Join our advanced coding course today</p>
+            </div>
+
             <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Personal Information */}
+              {/* Full Name */}
               <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                  <User className="w-5 h-5" />
-                  Student Information
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-                    <input
-                      type="text"
-                      name="fullName"
-                      value={formData.fullName}
-                      onChange={handleChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Student ID</label>
-                    <input
-                      type="text"
-                      name="studentId"
-                      value={formData.studentId}
-                      onChange={handleChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Major/Department</label>
-                    <input
-                      type="text"
-                      name="major"
-                      value={formData.major}
-                      onChange={handleChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Current GPA</label>
-                    <input
-                      type="number"
-                      step="0.01"
-                      min="0"
-                      max="4"
-                      name="gpa"
-                      value={formData.gpa}
-                      onChange={handleChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-                    />
-                  </div>
-                </div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Full Name *
+                </label>
+                <input
+                  type="text"
+                  name="fullName"
+                  value={formData.fullName}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                  placeholder="Enter your full name"
+                  required
+                />
               </div>
 
-              {/* Technical Skills */}
+              {/* Email */}
               <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                  <Code className="w-5 h-5" />
-                  Technical Background
-                </h3>
-                <div className="space-y-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Programming Languages</label>
-                    <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
-                      {programmingLanguages.map(language => (
-                        <label key={language} className="flex items-center gap-2">
-                          <input
-                            type="checkbox"
-                            name="programmingLanguages"
-                            value={language}
-                            checked={formData.programmingLanguages.includes(language)}
-                            onChange={handleChange}
-                            className="w-4 h-4"
-                          />
-                          <span className="text-sm">{language}</span>
-                        </label>
-                      ))}
-                    </div>
-                  </div>
-                  
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Experience Level</label>
-                      <select
-                        name="experienceLevel"
-                        value={formData.experienceLevel}
-                        onChange={handleChange}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-                      >
-                        <option value="beginner">Beginner (0-1 years)</option>
-                        <option value="intermediate">Intermediate (1-3 years)</option>
-                        <option value="advanced">Advanced (3+ years)</option>
-                      </select>
-                    </div>
-                    
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">GitHub Profile</label>
-                      <input
-                        type="url"
-                        name="githubProfile"
-                        value={formData.githubProfile}
-                        onChange={handleChange}
-                        placeholder="github.com/username"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-                      />
-                    </div>
-                  </div>
-                </div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Email Address *
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                  placeholder="Enter your email"
+                  required
+                />
               </div>
 
-              {/* Course Preferences */}
+              {/* Phone */}
               <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Course Preferences</h3>
-                <div className="space-y-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Primary Focus Area</label>
-                    <select
-                      name="focusArea"
-                      value={formData.focusArea}
-                      onChange={handleChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-                    >
-                      {focusAreas.map(area => (
-                        <option key={area.value} value={area.value}>{area.label}</option>
-                      ))}
-                    </select>
-                  </div>
-                  
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Project Complexity</label>
-                      <select
-                        name="projectComplexity"
-                        value={formData.projectComplexity}
-                        onChange={handleChange}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-                      >
-                        <option value="simple">Simple Projects</option>
-                        <option value="medium">Medium Complexity</option>
-                        <option value="complex">Complex Systems</option>
-                      </select>
-                    </div>
-                    
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Team Preference</label>
-                      <select
-                        name="teamPreference"
-                        value={formData.teamPreference}
-                        onChange={handleChange}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-                      >
-                        <option value="solo">Individual Work</option>
-                        <option value="mixed">Mixed Teams</option>
-                        <option value="team">Team Projects</option>
-                      </select>
-                    </div>
-                  </div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Phone Number *
+                </label>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                  placeholder="Enter your phone number"
+                  required
+                />
+              </div>
+
+
+              {/* Department and Semester */}
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Department
+                  </label>
+                  <select
+                    name="department"
+                    value={formData.department}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                  >
+                    <option value="">Select Department</option>
+                    <option value="mechanical">Mechanical Engineering</option>
+                    <option value="electrical">Electrical Engineering</option>
+                    <option value="computer">Computer Science</option>
+                    <option value="civil">Civil Engineering</option>
+                  </select>
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Semester
+                  </label>
+                  <select
+                    name="semester"
+                    value={formData.semester}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                  >
+                    <option value="">Select Semester</option>
+                    {[1, 2, 3, 4, 5, 6, 7, 8].map(sem => (
+                      <option key={sem} value={sem}>Semester {sem}</option>
+                    ))}
+                  </select>
                 </div>
               </div>
 
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full bg-purple-600 text-white py-3 px-4 rounded-lg font-semibold hover:bg-purple-700 transition-colors duration-200 flex items-center justify-center gap-2"
+                className="w-full bg-purple-600 text-white py-4 px-6 rounded-xl font-semibold hover:bg-purple-700 transition-all duration-300 flex items-center justify-center gap-3 shadow-lg hover:shadow-xl"
               >
-                <GitBranch className="w-5 h-5" />
-                Register for Advanced Coding Course
+                <CheckCircle className="w-5 h-5" />
+                Register for Course
               </button>
+              
             </form>
           </div>
         </div>

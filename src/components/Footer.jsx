@@ -296,15 +296,12 @@ const Footer = () => {
                 <span className="w-1 h-1 bg-slate-500 rounded-full"></span>
                 All rights reserved
               </p>
-              <div className="flex items-center gap-1 text-sm px-3 py-1 rounded-full bg-red-600/10 border border-red-600/20">
-                <Heart className="w-4 h-4 text-red-400" fill="currentColor" />
-                <span>Made with passion by KSS Team</span>
-              </div>
+             
             </div>
 
             {/* Policy Links */}
             <div className="flex items-center gap-6 flex-wrap">
-              {["Privacy Policy", "Terms of Service", "Sitemap", "Careers"].map((item, index) => (
+              {/* {["Privacy Policy", "Terms of Service", "Sitemap", "Careers"].map((item, index) => (
                 <a 
                   key={index}
                   href="#"
@@ -312,7 +309,12 @@ const Footer = () => {
                 >
                   {item}
                 </a>
-              ))}
+              ))} */}
+
+<div className="flex items-center gap-1 text-sm px-3 py-1 rounded-full bg-red-600/10 border border-red-600/20">
+                <Heart className="w-4 h-4 text-red-400" fill="currentColor" />
+                <span>Made with passion by KSS Team</span>
+              </div>
             </div>
 
             {/* Scroll to Top */}

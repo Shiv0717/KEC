@@ -25,11 +25,11 @@ import {
   StarIcon,
   RocketLaunchIcon,
   TrophyIcon,
-  HeartIcon
+  HeartIcon,
 } from '@heroicons/react/24/outline';
 import DataTable from 'react-data-table-component';
 import CompaniesVisitedTable from '../components/CompaniesVisitedTable';
-import { GraduationCap, Clock, Users, ArrowRight, Filter, Search } from "lucide-react";
+import { GraduationCap, Clock, Users, ArrowRight, Filter, Search ,User} from "lucide-react";
 
 const PlacementPortal = () => {
   const [activeTab, setActiveTab] = useState('overview');
@@ -379,17 +379,18 @@ const PlacementPortal = () => {
                 <SwiperSlide key={index}>
                   <motion.div
                     whileHover={{ y: -8, scale: 1.02 }}
-                    className="bg-gradient-to-br from-white to-blue-50 rounded-3xl p-8 shadow-lg hover:shadow-xl border border-blue-100 h-full flex flex-col transition-all duration-500 group"
+                    className="bg-gradient-to-br from-white to-blue-50 rounded-3xl p-8  border border-blue-100 h-full flex flex-col transition-all duration-500 group"
                   >
                     {/* Header with Avatar and Info */}
                     <div className="flex items-start space-x-4 mb-6">
                       <div className="relative">
                         <div className="w-16 h-16 rounded-2xl overflow-hidden shadow-md group-hover:shadow-lg transition-shadow duration-300">
-                          <img 
+                          {/* <img 
                             src={testimonial.image} 
                             alt={testimonial.name}
                             className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-                          />
+                          /> */}
+                           <User className="w-12 h-12 text-blue-600" />
                         </div>
                         <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-gradient-to-r from-blue-500 to-teal-500 rounded-full flex items-center justify-center shadow-sm">
                           <CheckCircleIcon className="w-3 h-3 text-white" />

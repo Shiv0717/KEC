@@ -32,6 +32,7 @@ import {
   Plug,
   Zap,
   Code,
+  Car,
   ClipboardList
 } from "lucide-react";
 // Register GSAP plugin
@@ -89,13 +90,6 @@ const affiliations = [
 
 // Main categories with color coding
 const mainCategories = [
-  {
-    name: "Home",
-    path: "/",
-    icon: Home,
-    description: "Welcome to Krishna Engineering College",
-    color: colors.primary,
-  },
   {
     name: "About",
     path: "/about",
@@ -302,7 +296,7 @@ const mainCategories = [
   },
   
   {
-    name: "Courses",
+    name: "Summer Courses",
     path: "/courses",
     icon: BookOpen,
     description: "Explore our specialized courses",
@@ -317,7 +311,7 @@ const mainCategories = [
       },
       {
         name: "EV Charging Station",
-        path: "/ev",
+        path: "/charging",
         icon: Plug,
         description: "Electric Vehicle Charging Station setup",
         color: colors.neutral,
@@ -327,6 +321,13 @@ const mainCategories = [
         path: "/coding",
         icon: Code,
         description: "Master advanced programming concepts",
+        color: colors.neutral,
+      },
+      {
+        name: "Electrical Vehicle Design",
+        path: "/ev",
+        icon: Car,
+        description: "Learn electric vehicle design",
         color: colors.neutral,
       },
     ],
@@ -536,13 +537,15 @@ const UniversityMenu = () => {
           {/* Logo */}
           <div ref={logoRef} className="flex-shrink-0">
             <div className="flex items-center">
-              <div className="w-20 h-20 rounded-full p-1 flex items-center justify-center">
-                <img
-                  src="/images/2025-08-27 19.10.46.jpg"
-                  className="w-full h-full rounded-full object-cover"
-                  alt="Krishna Engineering College Logo"
-                />
-              </div>
+            <Link to="/">
+      <div className="w-20 h-20 rounded-full p-1 flex items-center justify-center cursor-pointer">
+        <img
+          src="/images/2025-08-27 19.10.46.jpg"
+          className="w-full h-full rounded-full object-cover"
+          alt="Krishna Engineering College Logo"
+        />
+      </div>
+    </Link>
               <div className="ml-3" style={{ fontFamily: 'inter, serif' }}>
                 <h1 className="text-lg md:text-xl font-bold bg-gradient-to-r from-blue-700 to-blue-900 bg-clip-text text-transparent">
                   KRISHNA
