@@ -36,12 +36,12 @@ const Footer = () => {
   };
 
   const quickLinks = [
-    { name: "Home", url: "#", icon: Building, color: colors.primary },
-    { name: "Admissions", url: "#", icon: Users, color: colors.secondary },
-    { name: "Courses", url: "#", icon: BookOpen, color: colors.accent },
-    { name: "Placements", url: "#", icon: Target, color: colors.success },
-    { name: "Events", url: "#", icon: Clock, color: colors.primary },
-    { name: "Contact", url: "#", icon: Send, color: colors.secondary },
+    { name: "Home", url: "/", icon: Building, color: colors.primary },
+    { name: "Admissions", url: "/admission", icon: Users, color: colors.secondary },
+    { name: "Departments", url: "/departments", icon: BookOpen, color: colors.accent },
+    { name: "Placements", url: "/placements", icon: Target, color: colors.success },
+    { name: "Event", url: "/events", icon: Clock, color: colors.primary },
+    { name: "Contact", url: "/contact", icon: Send, color: colors.secondary },
   ];
 
   const contactInfo = [
@@ -74,13 +74,13 @@ const Footer = () => {
   const socialLinks = [
     { 
       icon: Facebook, 
-      url: "#", 
+      url: "https://www.facebook.com/kecbhilaioffical/", 
       name: "Facebook",
       color: colors.primary,
     },
     { 
       icon: Instagram, 
-      url: "#", 
+      url: "https://www.instagram.com/kec_bhilai/", 
       name: "Instagram",
       color: colors.secondary,
     },
@@ -90,12 +90,7 @@ const Footer = () => {
       name: "Twitter",
       color: colors.primary,
     },
-    { 
-      icon: Youtube, 
-      url: "#", 
-      name: "YouTube",
-      color: colors.accent,
-    },
+   
   ];
 
   const features = [
