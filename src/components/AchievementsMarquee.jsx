@@ -300,7 +300,7 @@ const CollegeDashboard = () => {
             Krishna Engineering College
           </h1>
           <p className="text-slate-600 text-base font-inter max-w-3xl mx-auto lg:mx-0">
-            Founded in 1885, KEC has been at the forefront of innovation, 
+            Founded in 1984, KEC has been at the forefront of innovation, 
             research, and academic excellence. Our mission is to promote the public welfare 
             by exercising an influence on behalf of humanity and civilization.
           </p>
