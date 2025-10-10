@@ -220,7 +220,7 @@ const EngineeringDepartments = () => {
             </div>
             
             <div ref={titleRef}>
-              <h1 className="text-3xl lg:text-5xl font-bold text-gray-900 leading-tight">
+              <h1 className="text-3xl lg:text-5xl font-bold text-gray-900 leading-tight" >
                 {activeDept.title}
               </h1>
             </div>
